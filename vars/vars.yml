@@ -1,0 +1,4 @@
+---
+# Define variables here
+python_interpreter: /usr/bin/python3
+password: magic

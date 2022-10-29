@@ -1,0 +1,18 @@
+---
+- name: List AWS S3 buckets
+  hosts: localhost
+  vars:
+    ansible_python_interpreter: "{{ python_interpreter }}"
+  vars_files:
+    - ./vars/vars.yml
+  gather_facts: false
+  tasks:
+
+  - name: Get all S3 buckets
+    community.aws.aws_s3_bucket_info:
+    register: result
+    
+  - name: Show list of buckets
+    ansible.builtin.debug:
+      msg: "{{ result }}"    
+    
